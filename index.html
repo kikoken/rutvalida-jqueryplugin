@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="utf-8">        
+        <meta name="author" content="kikoken">
+        <meta name="description" content="plugin de validación de rut chileno">
+        
+        <!-- Mobile Stuff -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="msapplication-tap-highlight" content="no">
+        
+        <!-- Chrome on Android -->
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="application-name" content="plugin rut">
+        
+        
+        <title>PLUGIN RUT CHILENO</title>
+        <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    </head>
+
+    <body>
+        <div class="container">
+           <div class="row">
+              <div class="col-md-6">
+                 <h3>Validar RUT</h3>
+                  <form action="#" class="form">
+                   <div class="form-group">
+                       <input type="text" class="form-control" name="rut" placeholder="ingrese su rut"/>
+                       <small>Puede ingresar con/sin puntos o guión</small>
+                   </div>
+                    
+                    <button type="submit" class="btn btn-info">Validar</button>
+                </form>
+              </div>
+           </div>
+            <div class="row">
+                <div class="alert alert-info col-md-6" role="alert">Debe completar el rut</div>
+            </div>
+        </div>
+        
+        <!-- Scripts -->
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script src="js/jquery.rut.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('form').submit(function(){
+                    if($('input[name=rut]').isRut())
+                        $('.alert').text('Su rut es válido');
+                    else
+                        $('.alert').text('Su rut no es válido');
+                    
+                    return false;
+                })
+                
+            })
+        </script>
+    </body>
+</html>
